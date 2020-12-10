@@ -221,6 +221,9 @@ prob=4/40*4/40*4/40*28/40
 #P(X=5)
 dbinom(5,200,prob)
 
+#P(X>5)
+pbinom(5,200,prob,lower.tail = F)
+
 
 
 
