@@ -264,6 +264,63 @@ sqrt(bariantza)
 
 library(moments)  
 
+#asimetria eta kurtosi koefizienteak
+
+#fisher
+skewness(ordenatuta)
+
+#ezkerrera alboratua
+
+#kurtosis
+kurtosis(ordenatuta)-3
+#platikurtikoa
+
+#Maiztasun taula
+
+heina = max(ordenatuta)-min(ordenatuta)
+d = sqrt(length(ordenatuta))
+d
+#klase kopurua = 12
+zabalera = heina /12
+zabalera
+
+limit = seq(min(datuak),by = zabalera, length.out = 12)
+limit
+tarte = cut(ordenatuta,limit,right=F)
+tarte
+a<-as.data.frame(table(tarte))
+a
+
+a$tarte[1]
+a$tarte[2]
+
+#NOLA ATERATZEN DA KLASE MARKA 
+klase.marka=(a$tarte[1]a$tarte[2])/2
+  
+Maiztasun.abs=a$Freq
+sum(Maiztasun.abs)
+Maiztasun.erl = Maiztasun.abs/25
+Met.maiztasun.abs = cumsum (Maiztasun.abs)
+Met.maiztasun.erl = cumsum(Maiztasun.erl)
+
+data.frame()
+
+
+
+#7.ariketa
+#X="Katamotzen pisua" X~N(8.6,1.4)
+
+#P(X>9.5)
+pnorm(9.5,8.6,1.4,lower.tail = F)
+
+#P(X>10.5)
+pnorm(10.5,8.6,1.4,lower.tail = F)
+
+#80 perzentila 
+quantile(lagina,0.8,type=z)
+
+#P(X<=85)
+pnorm(85,8.6,1.4)
 
 
 
