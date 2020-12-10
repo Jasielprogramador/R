@@ -224,7 +224,45 @@ dbinom(5,200,prob)
 #P(X>5)
 pbinom(5,200,prob,lower.tail = F)
 
+#4.ariketa
 
+hm = c(40.6,44.1,41.0,39.8,39.4,42.6,41.8,52.3,45.5,43.8,42.4,41.5,42.3,33.7,34.8,35.1,34.8,38.9,37.4,36.5,36.4,37.6,35.8,34.5,31.1,31.2,32.7,33.5,34.6,35.8,46.1)
+
+mean(hm)
+median(hm)
+
+boxplot(hm,horizontal = T)
+boxplot.stats(hm)
+
+bariantza = var(hm)*((length(hm)-1)/length(hm))
+sqrt(bariantza)
+
+
+hm.berria = hm*0.77
+hm.berria
+
+mean(hm.berria)
+
+heina = max(hm)-min(hm)
+k=sqrt(length(hm))
+k
+zabalera = heina/5
+zabalera
+br = seq(min(hm),max(hm),by=4.24)
+br
+hist(hm,breaks=br)
+
+
+#6.ariketa
+datuak = read.table("Tuboak.txt",header = T)
+datuak
+ordenatuta = sort(datuak$Tubo.luzera)
+ordenatuta  
+
+bariantza = var(ordenatuta)-((length(ordenatuta)-1)/length(ordenatuta))
+sqrt(bariantza)
+
+library(moments)  
 
 
 
