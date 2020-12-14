@@ -224,6 +224,7 @@ dbinom(5,200,prob)
 #P(X>5)
 pbinom(5,200,prob,lower.tail = F)
 
+
 #4.ariketa
 
 hm = c(40.6,44.1,41.0,39.8,39.4,42.6,41.8,52.3,45.5,43.8,42.4,41.5,42.3,33.7,34.8,35.1,34.8,38.9,37.4,36.5,36.4,37.6,35.8,34.5,31.1,31.2,32.7,33.5,34.6,35.8,46.1)
@@ -251,6 +252,21 @@ zabalera
 br = seq(min(hm),max(hm),by=4.24)
 br
 hist(hm,breaks=br)
+
+#5.ariketa
+#X="Onargarriak diren pieza kopurua" 
+#N=50 n=20 r=45 
+#X~H(45,5,20)
+#P(X=20)
+dhyper(20,45,5,20)
+
+#P(15<=X<=16) P(X<=16)-P(X<=15)
+phyper(16,45,5,20)-phyper(15,45,5,20)
+
+mu=20*45
+
+#Tsebisev
+
 
 
 #6.ariketa
@@ -321,6 +337,75 @@ quantile(lagina,0.8,type=z)
 
 #P(X<=85)
 pnorm(85,8.6,1.4)
+
+
+
+#6.praktika
+
+#1.ariketa
+A <- c(1320, 1495, 990, 1250, 12900, 1900, 1500, 1100, 1250, 1100, 1930)
+B <- c(1110, 1405, 985, 1290, 1300 , 1705, 1200, 1105, 1150, 1210)  
+
+
+t.test(A,conf.level = 0.95)$conf
+t.test(A,B,conf.level = 0.95)$conf
+t.test(A,B,conf.level = 0.95,var.equal = F)$conf
+
+
+#2.ariketa 
+prop.test(200*0.15,200,conf.level = 0.95)$conf
+
+
+#3.ariketa
+#I.marka = 200autotik9autok konponketak behar
+#II.marka = 300 autotik 15 autok konponketak behar 
+
+KT99 = c((9/200-15/300)-qnorm(0.995,0,1)*sqrt((9/200)*(191/200)/200+(15/300)*(285/300)/300), (9/200-15/300)+qnorm(0.995,0,1)*sqrt((9/200)*(191/200)/200+(15/300)*(285/300)/300))
+KT99
+
+#4.ariketa
+#X="" X~N(10,2)
+
+datuak = rnorm(20,10,2)
+t.test(datuak,conf.level = 0.95)$conf
+
+
+#5.ariketa 
+prop.test(82/101,101,conf.level = 0.99)$conf
+
+#6.ariketa 
+lagina = c(480, 345, 427, 386 ,432 ,429, 378, 440, 434, 503,
+           436, 451, 466, 394, 422, 412, 507, 433, 480, 429)
+
+t.test(lagina,conf.level = 0.95)$conf
+
+#7.praktika
+datuak = read.table("Salmentak.txt",header = T)
+datuak
+
+#2)
+a=0.05
+
+#H0:desb1=desb2
+#Ha:desb1 != desb2
+
+#3)
+a=length(datuak$SalmentaA)/length(datuak$SalmentaA)-1
+b=length(datuak$SalmentaB)/length(datuak$SalmentaB)-1
+                             
+estatistikoa = var(datuak$SalmentaA)*a/var(datuak$SalmentaB,na.rm=T)*b
+estatistikoa
+
+#4)
+
+ke = c(qf(0.025,length(datuak$SalmentaA),length(datuak$SalmentaB)),qf(0.975,length(datuak$SalmentaA),length(datuak$SalmentaB)))
+ke
+
+t.test(datuak$SalmentaA,datuak$SalmentaB,conf.level = 0.99)$conf
+
+
+
+
 
 
 
